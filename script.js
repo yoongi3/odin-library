@@ -1,7 +1,5 @@
 // Data Structure
 
-document.body.onload = displayLibrary;
-
 let myLibrary = [];
 
 function Book(title, author, pages, read){
@@ -11,19 +9,27 @@ function Book(title, author, pages, read){
     this.read = read
 }
 
-function AddBookToLibrary(book){
-    myLibrary.push(book)
-}
+// adding books manually for testing *remove later
 
 const book1 = new Book('book 1','author 1','1 page','not read')
 const book2 = new Book('book 2','author 2','2 pages','read')
-const book3 = new Book('hello','josh','123 pages', 'read')
+const book3 = new Book('hello','joshy','123 pages', 'read')
 
 AddBookToLibrary(book1);
 AddBookToLibrary(book2);
 AddBookToLibrary(book3)
 
+// DOM Elements
+
 const library = document.getElementById("library");
+
+// 
+
+function AddBookToLibrary(book){
+    myLibrary.push(book)
+}
+
+document.body.onload = displayLibrary;
 
 function displayLibrary(){
     myLibrary.forEach(book => {
