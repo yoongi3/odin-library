@@ -18,7 +18,7 @@
     background-color: beige;
     padding: 20px;
     text-align: center;
-    transform: translate(-50%,-50%) scale(1);
+    transform: translate(-50%,-50%) scale(0);
 }
 .add-book-form{
     display: flex;

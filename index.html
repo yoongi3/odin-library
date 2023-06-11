@@ -7,17 +7,18 @@
 </head>
 <body>
     <h1>Library</h1>
-    <button id="new-book">NEW BOOK</button>
+    <button id="newBookBtn">NEW BOOK</button>
 
     <div class="books-grid" id="booksGrid"></div>
 
-    <div class="modal">
+    <div class="modal" id="modal">
         <form class="add-book-form" id="addBookForm">
+            <button id="closeBtn">X</button>
             <h3>Add new book</h3>
-            <input class="input" type="text" id="title" placeholder="Title">
-            <input class="input" type="text" id="author" placeholder="Author">
-            <input class="input" type="number" id="pages" placeholder="Pages">
-            <input class="input" type="text" id="read" placeholder="Read/Not Read">
+            <input class="input" type="text" id="title" placeholder="Title" required maxlength="100">
+            <input class="input" type="text" id="author" placeholder="Author" required maxlength="100">
+            <input class="input" type="number" id="pages" placeholder="Pages" required max="10000">
+            <input class="input" type="text" id="read" placeholder="Read/Not Read" required maxlength="100">
             <button type="submit">Submit</button>
         </form>
     </div>

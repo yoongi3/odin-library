@@ -12,8 +12,12 @@ function Book(title, author, pages, read){
 // DOM Elements
 
 const booksGrid = document.getElementById("booksGrid");
+const modal = document.getElementById("modal");
+const addBookForm = document.getElementById("addBookForm");
 
-const addBookForm = document.getElementById("addBookForm")
+const newBookBtn = document.getElementById("newBookBtn");
+
+const closeBtn = document.getElementById("closeBtn");
 
 // 
 
@@ -25,17 +29,25 @@ const getBookFromInput = () => {
     return new Book(title, author, pages, read)
 
 }
+newBookBtn.onclick = () => {
+    modal.style.transform = "translate(-50%,-50%) scale(1)";
+}
+closeBtn.onclick = () => {
+    addBookForm.reset();
+    modal.style.transform = "translate(-50%,-50%) scale(0)";
+}
 
 const addBook = (e) =>{
     e.preventDefault()
     const newBook = getBookFromInput();
     AddBookToLibrary(newBook);
     addBookForm.reset();
+    modal.style.transform = "translate(-50%,-50%) scale(0)";
 }
 
 function AddBookToLibrary(book){
     myLibrary.push(book)
-
+    console.log("here")
     const newDiv = document.createElement("div");
     newDiv.setAttribute("class","book");
         
