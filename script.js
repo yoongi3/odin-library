@@ -19,35 +19,28 @@ const newBookBtn = document.getElementById("newBookBtn");
 
 const closeBtn = document.getElementById("closeBtn");
 
-// 
+// main functions
 
 const getBookFromInput = () => {
     const title = document.getElementById('title').value
     const author = document.getElementById('author').value
     const pages = document.getElementById('pages').value
-    const read = document.getElementById('read').value
+    const read = document.getElementById('read').checked
     return new Book(title, author, pages, read)
-
-}
-newBookBtn.onclick = () => {
-    modal.style.transform = "translate(-50%,-50%) scale(1)";
-}
-closeBtn.onclick = () => {
-    addBookForm.reset();
-    modal.style.transform = "translate(-50%,-50%) scale(0)";
 }
 
 const addBook = (e) =>{
     e.preventDefault()
+
     const newBook = getBookFromInput();
     AddBookToLibrary(newBook);
+
     addBookForm.reset();
     modal.style.transform = "translate(-50%,-50%) scale(0)";
 }
 
 function AddBookToLibrary(book){
     myLibrary.push(book)
-    console.log("here")
     const newDiv = document.createElement("div");
     newDiv.setAttribute("class","book");
         
@@ -64,4 +57,11 @@ function AddBookToLibrary(book){
 
 addBookForm.onsubmit = addBook
 
+newBookBtn.onclick = () => {
+    modal.style.transform = "translate(-50%,-50%) scale(1)";
+}
 
+closeBtn.onclick = () => {
+    addBookForm.reset();
+    modal.style.transform = "translate(-50%,-50%) scale(0)";
+}
