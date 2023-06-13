@@ -13,8 +13,10 @@
 
     <div class="modal" id="modal">
         <form class="add-book-form" id="addBookForm">
-            <button type="button" id="closeBtn">X</button>
-            <h3>Add new book</h3>
+            <div class="modal-head">
+                <h3>Add new book</h3>
+                <button type="button" id="closeBtn">X</button>
+            </div>
             <input class="input" type="text" id="title" placeholder="Title" required maxlength="100">
             <input class="input" type="text" id="author" placeholder="Author" required maxlength="100">
             <input class="input" type="number" id="pages" placeholder="Pages" required max="10000">
@@ -22,7 +24,7 @@
                 <label for="read">Have you read this book?</label>
                 <input class="checkbox" type="checkbox" id="read">
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" id="submitBtn">Submit</button>
         </form>
     </div>
 

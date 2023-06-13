@@ -1,6 +1,7 @@
 .books-grid{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
 }
 .book{
     display: flex;
@@ -20,6 +21,13 @@
     text-align: center;
     transform: translate(-50%,-50%) scale(0);
 }
+.modal-head{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+#closeBtn{
+}
 .add-book-form{
     display: flex;
     flex-direction: column;
@@ -29,6 +37,19 @@
 .input{
     width: 100%;
     padding: 10px;
+}
+.is-read{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+#read{
+    width: 20px;
+    height: 20px;
+}
+#submitBtn{
+    align-self: flex-end;
+    width: 30%;
 }
 *{
     box-sizing: border-box;
