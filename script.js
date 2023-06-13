@@ -65,3 +65,20 @@ closeBtn.onclick = () => {
     addBookForm.reset();
     modal.style.transform = "translate(-50%,-50%) scale(0)";
 }
+
+// testing creates x amount of books
+
+function FillLibrary(x){
+    for(let i = 0; i <= x; i++){
+        const a = generateBook()
+        AddBookToLibrary(a)
+    }
+}
+const generateBook = () => {
+    const randTitle = "book " + Math.floor(Math.random() * 100);
+    const randAuthor = "author " + Math.floor(Math.random() * 100);
+    const randPages = Math.floor(Math.random() * 100);
+    return new Book(randTitle, randAuthor, randPages, false)
+}
+
+FillLibrary(10);
