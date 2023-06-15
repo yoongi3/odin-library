@@ -55,27 +55,51 @@ function CreateBookCard(book){
     removeBtn.setAttribute("class", "remove-Btn")
     newDiv.appendChild(removeBtn);
     removeBtn.appendChild(document.createTextNode("remove"))
+    
+    // title
+    const title = document.createElement("p");
+    newDiv.appendChild(title);
+    title.appendChild(document.createTextNode("title: " + book.title))
 
-    removeBtn.onclick = removeBook
-    
-    // Book info
-    Object.keys(book).forEach(key => {
-        const p = document.createElement("p");
-        newDiv.appendChild(p);
-        p.appendChild(document.createTextNode(book[key]))
-    });
-    
+    // author
+    const author = document.createElement("p");
+    newDiv.appendChild(author);
+    author.appendChild(document.createTextNode("author: " + book.author))
+
+    // pages
+    const pages = document.createElement("p");
+    newDiv.appendChild(pages);
+    pages.appendChild(document.createTextNode("pages: " + book.pages))
+
     // Read Button
     const readBtn = document.createElement("button");
     readBtn.setAttribute("class", "card-btn");
     newDiv.appendChild(readBtn);
-    readBtn.appendChild(document.createTextNode("read"))
+    let readText = "";
+    if (book.read){
+        readText = "read";
+    }
+    else if (!book.read){
+        readText = "not read";
+    }
+    readBtn.appendChild(document.createTextNode(readText))
+
+    removeBtn.onclick = removeBook;
+    readBtn.onclick = readStatus;
 }
 
 // Buttons
 
 const removeBook = (e) => {
     e.target.parentNode.remove();
+}
+
+const readStatus = (e) => {
+    let status = e.target.textContent
+    if (status == "read")
+        e.target.textContent = "not read";
+    if (status == "not read")
+        e.target.textContent = "read";
 }
 
 addBookForm.onsubmit = addBook
