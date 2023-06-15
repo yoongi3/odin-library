@@ -11,7 +11,7 @@ function Book(title, author, pages, read){
 
 // DOM Elements
 
-const booksGrid = document.getElementById("booksGrid");
+const cardGrid = document.getElementById("cardGrid");
 const modal = document.getElementById("modal");
 const addBookForm = document.getElementById("addBookForm");
 
@@ -40,21 +40,43 @@ const addBook = (e) =>{
 }
 
 function AddBookToLibrary(book){
-    myLibrary.push(book)
+    myLibrary.push(book);
+    CreateBookCard(book);
+}
+
+function CreateBookCard(book){
+    // Card shell
     const newDiv = document.createElement("div");
+    cardGrid.appendChild(newDiv)
     newDiv.setAttribute("class", "book");
-    newDiv.setAttribute("id", "no." + myLibrary.indexOf(book));
-        
+
+    // Remove Button
+    const removeBtn = document.createElement("button");
+    removeBtn.setAttribute("class", "remove-Btn")
+    newDiv.appendChild(removeBtn);
+    removeBtn.appendChild(document.createTextNode("remove"))
+
+    removeBtn.onclick = removeBook
+    
+    // Book info
     Object.keys(book).forEach(key => {
         const p = document.createElement("p");
         newDiv.appendChild(p);
         p.appendChild(document.createTextNode(book[key]))
     });
-
-    booksGrid.appendChild(newDiv)
+    
+    // Read Button
+    const readBtn = document.createElement("button");
+    readBtn.setAttribute("class", "card-btn");
+    newDiv.appendChild(readBtn);
+    readBtn.appendChild(document.createTextNode("read"))
 }
 
 // Buttons
+
+const removeBook = (e) => {
+    e.target.parentNode.remove();
+}
 
 addBookForm.onsubmit = addBook
 
