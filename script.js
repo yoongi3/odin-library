@@ -42,7 +42,8 @@ const addBook = (e) =>{
 function AddBookToLibrary(book){
     myLibrary.push(book)
     const newDiv = document.createElement("div");
-    newDiv.setAttribute("class","book");
+    newDiv.setAttribute("class", "book");
+    newDiv.setAttribute("id", "no." + myLibrary.indexOf(book));
         
     Object.keys(book).forEach(key => {
         const p = document.createElement("p");
