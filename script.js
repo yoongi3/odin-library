@@ -75,17 +75,16 @@ function CreateBookCard(book){
     const readBtn = document.createElement("button");
     readBtn.setAttribute("class", "card-btn");
     newDiv.appendChild(readBtn);
-    let readText = "";
+
     if (book.read){
-        readText = "read";
+        readBtn.textContent = "read";
     }
     else if (!book.read){
-        readText = "not read";
+        readBtn.textContent = "not read";
     }
-    readBtn.appendChild(document.createTextNode(readText))
 
     removeBtn.onclick = removeBook;
-    readBtn.onclick = readStatus;
+    readBtn.onclick = toggleRead;
 }
 
 // Buttons
@@ -94,12 +93,14 @@ const removeBook = (e) => {
     e.target.parentNode.remove();
 }
 
-const readStatus = (e) => {
+const toggleRead = (e) => {
     let status = e.target.textContent
-    if (status == "read")
+    if (status == "read"){
         e.target.textContent = "not read";
-    if (status == "not read")
+    }
+    if (status == "not read"){
         e.target.textContent = "read";
+    }
 }
 
 addBookForm.onsubmit = addBook
